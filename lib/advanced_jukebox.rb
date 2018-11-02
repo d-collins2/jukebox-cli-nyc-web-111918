@@ -23,15 +23,20 @@ end
 
 
 def play(songs)
-  puts "Please enter a song name or number:"
-  input = gets.chomp
-  if songs.include?(input)
-    puts "Playing #{input}"
-  elsif list(songs).include?(input)
-    puts "Playing #{songs[input - 1]}"
-  else 
-    puts "Invalid input, please try again"
-  end 
+ puts "Please enter a song name:"
+  user_response = gets.chomp
+  my_songs.each { |song, location|
+    if user_response == song
+      system 'open ' + location
+    end
+      }
+  if user_response == "list"
+    list(my_songs)
+    play(my_songs)
+  else
+    puts "Invalid input, please try again:"
+    play(my_songs)
+  end
 end 
 
 
