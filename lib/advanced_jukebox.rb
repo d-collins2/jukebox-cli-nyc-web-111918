@@ -36,10 +36,9 @@ end
 
 
 def list(songs)
-   arr = []
-   songs.keys.each_with_index{|song, idx| arr << "#{idx + 1}. #{song}"}
-   arr.each {|el| puts el}
-   arr 
+   my_songs.each { |song, location|
+    puts song
+    }
 end
 
 def exit_jukebox
